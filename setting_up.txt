@@ -1,0 +1,7 @@
+Setting up enviornment:
+    open Command Prompt
+    cmd to indecision-app:
+        1 - live-server public
+        2 - babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+
+	
