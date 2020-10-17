@@ -1,14 +1,18 @@
 // JSX - JavaScript XML
 
-var appHeader = {
-    title: 'My First React App',
-    subTitle: '10.16.2020',
-}
 
-var template = (
+
+var appHeader = {
+    title: "My First React App",
+    subTitle: "10.16.2020",
+    options: ["one", "two"]
+};
+
+var template1 = (
     <div>
         <h1>{appHeader.title}</h1>
-        <p>{appHeader.subTitle}</p>
+        {appHeader.subTitle && <h3>{appHeader.subTitle}</h3>}
+        <p>{appHeader.options.length > 0 ? "Here are your options: " : "No options"}</p>
         <ol>
             <li>item1</li>
             <li>item2</li>
@@ -16,23 +20,30 @@ var template = (
     </div>
 );
 
-var user = {
-    name: 'Ali',
-    age: 25,
-    location: 'Michigan',
-}
 
-// var userName = 'Mike';
-// var userAge = 27;
-// var userLocation = 'Philly';
+var user = {
+    name: "Ali",
+    age: 25,
+    location: "Michigan"
+};
+
+function getLocation(location) {
+    if (location) {
+    return <p>location: {location}</p>;
+    } else {
+        return undefined;
+    }
+}
 
 var template2 = (
     <div>
-        <h1>{`${user.name}!`}</h1>
-        <p>Age: {user.age}</p>
-        <p>Location: {user.location}</p>
+        <h1>{user.name ? user.name : "Anonymous"}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        {getLocation(user.location)}
     </div>
 );
 
-var appRoot = document.getElementById('app');
-ReactDOM.render(template2, appRoot);
+
+
+var appRoot = document.getElementById("app");
+ReactDOM.render(template1, appRoot);
