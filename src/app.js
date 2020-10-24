@@ -2,13 +2,13 @@
 
 
 
-var appHeader = {
+const appHeader = {
     title: "My First React App",
     subTitle: "10.16.2020",
     options: ["one", "two"]
 };
 
-var template1 = (
+const template1 = (
     <div>
         <h1>{appHeader.title}</h1>
         {appHeader.subTitle && <h3>{appHeader.subTitle}</h3>}
@@ -21,7 +21,7 @@ var template1 = (
 );
 
 
-var user = {
+const user = {
     name: "Ali",
     age: 25,
     location: "Michigan"
@@ -35,7 +35,7 @@ function getLocation(location) {
     }
 }
 
-var template2 = (
+const template2 = (
     <div>
         <h1>{user.name ? user.name : "Anonymous"}</h1>
         {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
@@ -45,5 +45,5 @@ var template2 = (
 
 
 
-var appRoot = document.getElementById("app");
+const appRoot = document.getElementById("app");
 ReactDOM.render(template1, appRoot);
