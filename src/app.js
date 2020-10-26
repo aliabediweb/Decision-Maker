@@ -4,7 +4,7 @@
 
 const appHeader = {
     title: "My First React App",
-    subTitle: "10.16.2020",
+    subTitle: "10.25.2020",
     options: ["one", "two"]
 };
 
@@ -20,30 +20,30 @@ const template1 = (
     </div>
 );
 
-
-const user = {
-    name: "Ali",
-    age: 25,
-    location: "Michigan"
+let count = 0;
+const addOne = () => {
+    console.log("1");
 };
-
-function getLocation(location) {
-    if (location) {
-    return <p>location: {location}</p>;
-    } else {
-        return undefined;
-    }
-}
-
+const minusOne = () => {
+    console.log("-1");
+};
+const zero = () => {
+    console.log("0");
+};
+const someId = "myID"
 const template2 = (
     <div>
-        <h1>{user.name ? user.name : "Anonymous"}</h1>
-        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
+        <h1>Count: {count}</h1>
+        <button onClick={minusOne}>-1</button>
+        <button onClick={zero}>0</button>
+        <button onClick={addOne}>+1</button>  
     </div>
+
 );
+
+console.log(template2)
 
 
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(template1, appRoot);
+ReactDOM.render(template2, appRoot);
