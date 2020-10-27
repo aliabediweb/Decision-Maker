@@ -1,49 +1,52 @@
-// JSX - JavaScript XML
+// Indecision App
 
 
 
 const appHeader = {
     title: "My First React App",
     subTitle: "10.25.2020",
-    options: ["one", "two"]
+    options: []
 };
 
-const template1 = (
-    <div>
-        <h1>{appHeader.title}</h1>
-        {appHeader.subTitle && <h3>{appHeader.subTitle}</h3>}
-        <p>{appHeader.options.length > 0 ? "Here are your options: " : "No options"}</p>
-        <ol>
-            <li>item1</li>
-            <li>item2</li>
-        </ol>
-    </div>
-);
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    const option = e.target.elements.option.value;
 
-let count = 0;
-const addOne = () => {
-    console.log("1");
+    if (option) {
+        appHeader.options.push(option);
+        e.target.elements.option.value = '';
+        render();
+    }
 };
-const minusOne = () => {
-    console.log("-1");
+
+const onRemoveAll = () => {
+    appHeader.options = [];
+    render();
 };
-const zero = () => {
-    console.log("0");
-};
-const someId = "myID"
-const template2 = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button onClick={minusOne}>-1</button>
-        <button onClick={zero}>0</button>
-        <button onClick={addOne}>+1</button>  
-    </div>
-
-);
-
-console.log(template2)
-
-
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(template2, appRoot);
+
+const render = () => {
+    const template1 = (
+        <div>
+            <h1>{appHeader.title}</h1>
+            {appHeader.subTitle && <h3>{appHeader.subTitle}</h3>}
+            <p>{appHeader.options.length > 0 ? "Here are your options: " : "No options"}</p>
+            <p>{appHeader.options.length}</p>
+            <button onClick={onRemoveAll}>Remove All</button>
+            <ol>
+                <li>item1</li>
+                <li>item2</li>
+            </ol>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option" />
+                <button>Add Option</button>
+            </form>
+        </div>
+    );
+
+    ReactDOM.render(template1, appRoot);
+};
+
+
+render();
