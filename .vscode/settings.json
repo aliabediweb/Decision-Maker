@@ -1,3 +1,4 @@
 {
-    "typescript.suggest.paths": false
+    "typescript.suggest.paths": false,
+    "git.ignoreLimitWarning": true
 }

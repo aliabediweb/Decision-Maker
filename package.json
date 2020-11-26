@@ -4,8 +4,27 @@
   "main": "index.js",
   "author": "Ali Abedi",
   "license": "MIT",
+  "scripts": {
+    "server": "live-server public/",
+    "build": "webpack --watch",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  },
   "dependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.1",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "live-server": "^1.2.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "validator": "^13.1.17",
+    "webpack": "^5.6.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.2.0"
   }
 }
