@@ -10,13 +10,17 @@ const OptionModal = (props) => (
         onRequestClose={props.handleClearSelectedOption}
         // label (does not display on screen - just a name):
         contentLabel="Selected Option"
+        // interval to wait before deleting modal 'div' (for transition close effect):
+        closeTimeoutMS={300}
+        // 'className' to style:
+        className="modal"
     >
         {/* title: */}
-        <h3>Selected Option:</h3>
+        <h3 className="modal__title">Selected Option:</h3>
         {/* display 'selected option': */}
-        {props.selectedOption && <p>{props.selectedOption}</p>}
+        {props.selectedOption && <p className="modal__body">{props.selectedOption}</p>}
         {/* button to close modal: */}
-        <button onClick={props.handleClearSelectedOption}>Close</button>
+        <button className="button" onClick={props.handleClearSelectedOption}>Close</button>
     </Modal>
 );
 
